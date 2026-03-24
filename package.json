@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Graph-Based Data Modeling and Query System for SAP Order-to-Cash data",
   "private": true,
-  "scripts": {
+    "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/seed-database.js && next build",
     "start": "next start",
     "seed": "node scripts/seed-database.js"
   },

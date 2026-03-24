@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      config.externals.push('better-sqlite3');
-    }
-    return config;
+  experimental: {
+    // Ensures the native SQLite binary is packaged correctly for Serverless
+    serverComponentsExternalPackages: ['better-sqlite3'],
+    // Ensures your generated database file is copied to the serverless function
+    outputFileTracingIncludes: {
+      '/api/**/*': ['./sap_graph.db'],
+    },
   },
 };
 

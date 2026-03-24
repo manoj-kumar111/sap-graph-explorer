@@ -7,7 +7,6 @@ export function getDb() {
   if (!db) {
     const dbPath = path.join(process.cwd(), 'sap_graph.db');
     db = new Database(dbPath, { readonly: true });
-    db.pragma('journal_mode = WAL');
   }
   return db;
 }
