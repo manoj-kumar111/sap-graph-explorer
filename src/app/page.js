@@ -60,9 +60,14 @@ export default function Home() {
   // Fetch graph data
   useEffect(() => {
     fetch('/api/graph')
-      .then((res) => res.json())
+      .then(async (res) => {
+        if (!res.ok) throw new Error(`API Error: ${res.status}`);
+        return res.json();
+      })
       .then((data) => {
-        setGraphData(data);
+        if (data && data.nodes) {
+          setGraphData(data);
+        }
         setGraphLoading(false);
       })
       .catch((err) => {
@@ -73,7 +78,7 @@ export default function Home() {
 
   // Force-directed graph simulation on canvas
   useEffect(() => {
-    if (!graphData || !canvasRef.current) return;
+    if (!graphData || !graphData.nodes || !canvasRef.current) return;
 
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
@@ -447,7 +452,7 @@ export default function Home() {
           SAP Graph Explorer
         </h1>
         <div className="header-stats">
-          {graphData && (
+        {graphData && graphData.nodes && (
             <>
               <div className="stat-badge">
                 <span className="count">{graphData.nodes.length}</span> Nodes
@@ -467,6 +472,10 @@ export default function Home() {
             <div className="graph-loading">
               <div className="spinner" />
               <span>Building graph...</span>
+            </div>
+          ) : !graphData?.nodes ? (
+            <div className="graph-loading" style={{ color: '#ff6b6b' }}>
+              <span>⚠️ Failed to load graph data. Check Vercel server logs.</span>
             </div>
           ) : (
             <>

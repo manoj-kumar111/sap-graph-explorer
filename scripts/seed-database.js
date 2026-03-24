@@ -475,6 +475,9 @@ function main() {
     console.log(`  ${name}: ${count.c} rows`);
   }
 
+  // Revert back to DELETE mode so it cleans up WAL files
+  // This is required for Vercel's read-only serverless environments
+  db.pragma('journal_mode = DELETE');
   db.close();
   console.log('\n✅ Database seeded successfully!');
 }
