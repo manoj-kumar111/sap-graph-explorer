@@ -1,0 +1,45 @@
+# dependencies
+node_modules/
+.pnp
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+.next/
+out/
+/.next/
+/out/
+
+# database
+*.db
+# production
+/build
+
+# env
+.env.local
+.env*.local
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# raw data (too large for git)
+data/
+# local env files (NEVER COMMIT API KEYS)
+.env*.local
+.env
+
+# SQLite Database (generated locally, do not commit!)
+sap_graph.db
+sap_graph.db-wal
+sap_graph.db-shm
+sap_graph.db-journal

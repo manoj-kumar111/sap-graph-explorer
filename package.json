@@ -1,0 +1,19 @@
+{
+  "name": "sap-graph-explorer",
+  "version": "1.0.0",
+  "description": "Graph-Based Data Modeling and Query System for SAP Order-to-Cash data",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "seed": "node scripts/seed-database.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.0.0",
+    "next": "^14.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {}
+}
