@@ -168,6 +168,6 @@ Choose one provider and add your key to `.env.local`:
 - **Styling**: Vanilla CSS with dark theme design system
 - **No external graph library** — pure canvas rendering for performance
 
-## 📝 AI Coding Tools Used
+## 📝 Development Process
 
-This project was developed using **Gemini Code Assist (Antigravity)** in VS Code. Session logs are available as part of the conversation history.
+Built with an AI-assisted development workflow, leveraging **Gemini Code Assist** and **GitHub Copilot** in VS Code for code generation, debugging, and rapid prototyping. All architectural decisions, schema design, LLM prompting strategy, and system integration were driven by the developer — AI tools were used to accelerate implementation and iterate faster. Session logs from the AI-assisted coding sessions are available upon request.
